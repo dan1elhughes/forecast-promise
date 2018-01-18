@@ -1,0 +1,16 @@
+{
+  "name": "forecast-promise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "moment": "^2.20.1"
+  }
+}
