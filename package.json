@@ -1,16 +1,20 @@
 {
-  "name": "forecast-promise",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "axios": "^0.17.1",
-    "moment": "^2.20.1"
-  }
+	"name": "forecast-promise",
+	"version": "1.0.0",
+	"keywords": ["harvest", "forecast", "forecast-api", "forecastapp", "schedule", "projects", "milestones", "promise"],
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/dan1elhughes/forecast-promise.git"
+	},
+	"author": "Dan Hughes",
+	"license": "MIT",
+	"dependencies": {
+		"axios": "^0.17.1",
+		"moment": "^2.20.1"
+	}
 }
