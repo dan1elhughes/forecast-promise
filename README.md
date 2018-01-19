@@ -1,6 +1,6 @@
 # Node Forecast promise API
 
-A Forecast ([https://forecastapp.com](forecastapp.com)) API wrapper for Node.js. Forked from [inlight-media/node-forecast-api](https://github.com/inlight-media/node-forecast-api).
+A Forecast ([https://forecastapp.com](https://forecastapp.com)) API wrapper for Node.js. Forked from [inlight-media/node-forecast-api](https://github.com/inlight-media/node-forecast-api).
 
 ## Installation
 
