@@ -1,7 +1,16 @@
 {
 	"name": "forecast-promise",
-	"version": "1.0.0",
-	"keywords": ["harvest", "forecast", "forecast-api", "forecastapp", "schedule", "projects", "milestones", "promise"],
+	"version": "1.1.0",
+	"keywords": [
+		"harvest",
+		"forecast",
+		"forecast-api",
+		"forecastapp",
+		"schedule",
+		"projects",
+		"milestones",
+		"promise"
+	],
 	"description": "",
 	"main": "index.js",
 	"scripts": {
