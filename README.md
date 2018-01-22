@@ -26,6 +26,14 @@ const forecast = new Forecast({
 });
 ```
 
+## WhoAmI
+
+```js
+forecast.whoAmI().then(user => {
+	console.log(user);
+});
+```
+
 ## People
 
 ```js
