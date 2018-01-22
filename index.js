@@ -26,6 +26,7 @@ class Forecast {
 			['projects'],
 			['assignments'],
 			['milestones'],
+			['roles'],
 		];
 
 		methods.forEach(([ name, dataLocation ]) => {

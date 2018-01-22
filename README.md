@@ -58,6 +58,14 @@ forecast.projects().then(projects => {
 });
 ```
 
+## Roles
+
+```js
+forecast.roles().then(roles => {
+	console.log(roles);
+});
+```
+
 ## Assignments
 
 Assignments supports the following options (see below for more details):
