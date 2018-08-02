@@ -1,37 +1,17 @@
 {
 	"parserOptions": {
-		"sourceType": "module",
-		"ecmaFeatures": {
-			"experimentalObjectRestSpread": true
-		}
+		"ecmaVersion": 2018,
+		"sourceType": "module"
 	},
 	"env": {
 		"node": true,
-		"es6": true
+		"jest": true
 	},
-	"extends": [
-		"eslint:recommended"
-	],
+	"plugins": ["prettier"],
+	"extends": ["eslint:recommended", "prettier"],
 	"rules": {
-		"indent": [
-			"error",
-			"tab"
-		],
-		"linebreak-style": [
-			"error",
-			"unix"
-		],
-		"quotes": [
-			"error",
-			"single"
-		],
-		"semi": [
-			"error",
-			"always"
-		],
-		"comma-dangle": [
-			"error",
-			"always-multiline"
-		]
+		"prettier/prettier": "error",
+		"linebreak-style": ["error", "unix"],
+		"no-unused-vars": ["error", { "ignoreRestSiblings": true }]
 	}
 }

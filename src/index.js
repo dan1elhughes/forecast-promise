@@ -4,12 +4,14 @@ const moment = require('moment');
 class Forecast {
 	constructor({ accountId, token }) {
 		if (!accountId || !token) {
-			throw new Error('Forecast module requires accountId and token to be configured.');
+			throw new Error(
+				'Forecast module requires accountId and token to be configured.'
+			);
 		}
 
 		const baseURL = 'https://api.forecastapp.com/';
 		const headers = {
-			'Authorization': `Bearer ${token}`,
+			Authorization: `Bearer ${token}`,
 			'Forecast-Account-Id': accountId,
 			'User-Agent': 'https://www.npmjs.com/package/forecast-promise',
 		};
@@ -29,10 +31,11 @@ class Forecast {
 			['roles'],
 		];
 
-		methods.forEach(([ name, dataLocation ]) => {
+		methods.forEach(([name, dataLocation]) => {
 			const route = '/' + name.toLowerCase();
 			const prop = dataLocation || name;
-			this[name] = options => this._request(route, options).then(response => response.data[prop]);
+			this[name] = options =>
+				this._request(route, options).then(response => response.data[prop]);
 		});
 	}
 
@@ -62,7 +65,9 @@ function toDateString(obj) {
 	if (typeof obj === 'string') {
 		date = moment(obj);
 		if (!date.isValid()) {
-			throw new Error('Invalid date string; expecting ISO-8601 compatible format.');
+			throw new Error(
+				'Invalid date string; expecting ISO-8601 compatible format.'
+			);
 		}
 	} else if (obj instanceof Date) {
 		// Check for bad date objects like: new Date('LOL');
@@ -75,7 +80,9 @@ function toDateString(obj) {
 	}
 
 	if (!date) {
-		throw new Error('Invalid date; expecting a valid: ISO-8601 compatible date string, a Date object or a moment date object.');
+		throw new Error(
+			'Invalid date; expecting a valid: ISO-8601 compatible date string, a Date object or a moment date object.'
+		);
 	}
 
 	return date.format('YYYY-MM-DD');
