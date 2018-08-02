@@ -1,0 +1,64 @@
+version: 2
+jobs:
+  latest: &template
+    docker:
+      - image: circleci/node:10
+
+    steps:
+      - checkout
+
+      # Restore any cached node_modules from the last
+      # build, if package.json has the same checksum.
+      - restore_cache:
+          key: dependencies-{{ checksum "package.json" }}-{{ .Environment.CIRCLE_JOB }}
+
+      - run:
+          name: Install dependencies
+          command: npm install --silent
+
+      # Save the content of node_modules to cache for the next build.
+      - save_cache:
+          key: dependencies-{{ checksum "package.json" }}-{{ .Environment.CIRCLE_JOB }}
+          paths:
+            - node_modules
+
+      - run:
+          name: Linting
+          command: npm run lint -- --format junit -o test-results/eslint/results.xml
+
+      - run:
+          name: Upload code coverage
+          command: bash <(curl -s https://codecov.io/bash)
+
+      - store_test_results:
+          path: test-results
+
+  "node:10":
+    <<: *template
+    docker:
+      - image: circleci/node:10
+
+  "node:9":
+    <<: *template
+    docker:
+      - image: circleci/node:9
+
+  "node:8":
+    <<: *template
+    docker:
+      - image: circleci/node:8
+
+  "node:7":
+    <<: *template
+    docker:
+      - image: circleci/node:7
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - "latest"
+      - "node:10"
+      - "node:9"
+      - "node:8"
+      - "node:7"
