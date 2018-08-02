@@ -2,7 +2,7 @@ const axios = require('axios');
 const stringifyDates = require('./stringifyDates');
 
 class Forecast {
-	constructor({ accountId, token } = {}) {
+	constructor({ accountId, token } = {}, instance) {
 		if (!accountId || !token) {
 			throw new Error(
 				'Forecast module requires accountId and token to be configured.'
@@ -16,10 +16,12 @@ class Forecast {
 			'User-Agent': 'https://www.npmjs.com/package/forecast-promise',
 		};
 
-		this.instance = axios.create({
-			baseURL,
-			headers,
-		});
+		this.instance =
+			instance ||
+			axios.create({
+				baseURL,
+				headers,
+			});
 
 		const methods = [
 			['whoAmI', 'current_user'],

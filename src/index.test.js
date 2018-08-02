@@ -3,6 +3,8 @@ const Forecast = require('./index');
 
 jest.mock('axios');
 
+jest.mock('./toDateString', () => () => 'mock__dateString');
+
 const MOCK_CREDENTIALS = {
 	accountId: 'mock__accountId',
 	token: 'mock__token',
@@ -37,5 +39,39 @@ describe('forecast-promise', () => {
 				'User-Agent': 'https://www.npmjs.com/package/forecast-promise',
 			},
 		});
+	});
+
+	it('calls requests on axios', async () => {
+		const get = jest.fn().mockImplementation(async url => {
+			if (url === '/whoami') {
+				return {
+					data: { current_user: 'mock__user' },
+				};
+			}
+
+			return {
+				data: {
+					[url.substring(1)]: url,
+				},
+			};
+		});
+
+		const axiosMock = { get };
+
+		const f = new Forecast(MOCK_CREDENTIALS, axiosMock);
+
+		const whoAmI = await f.whoAmI();
+
+		expect(whoAmI).toEqual('mock__user');
+
+		const projects = await f.projects({
+			startDate: 'mock__input',
+			endDate: 'mock__input',
+		});
+
+		// Not mocking API response, just want to know the query went out
+		expect(projects).toEqual('/projects');
+
+		expect(get).toBeCalledTimes(2);
 	});
 });
