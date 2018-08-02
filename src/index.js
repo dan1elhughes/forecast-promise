@@ -2,7 +2,7 @@ const axios = require('axios');
 const stringifyDates = require('./stringifyDates');
 
 class Forecast {
-	constructor({ accountId, token }) {
+	constructor({ accountId, token } = {}) {
 		if (!accountId || !token) {
 			throw new Error(
 				'Forecast module requires accountId and token to be configured.'
