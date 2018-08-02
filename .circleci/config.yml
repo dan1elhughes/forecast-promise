@@ -23,6 +23,12 @@ jobs:
             - node_modules
 
       - run:
+          name: Test suite
+          command: npm test -- --ci --reporters=jest-junit --runInBand --coverage
+          environment:
+            JEST_JUNIT_OUTPUT: test-results/jest/results.xml
+
+      - run:
           name: Linting
           command: npm run lint -- --format junit -o test-results/eslint/results.xml
 
