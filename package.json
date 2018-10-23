@@ -17,6 +17,7 @@
 		"test": "jest",
 		"lint": "eslint --ignore-path .gitignore .",
 		"build": "babel src --out-dir dist",
+		"build:watch": "babel src --watch --out-dir dist",
 		"prepublishOnly": "npm run build",
 		"precommit": "lint-staged"
 	},

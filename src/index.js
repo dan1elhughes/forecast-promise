@@ -39,6 +39,10 @@ class Forecast {
 			this[name] = options =>
 				this._request(route, options).then(response => response.data[prop]);
 		});
+
+		const route = '/aggregate/project_export';
+		this['report'] = options =>
+			this._request(route, options).then(response => response.data);
 	}
 
 	_request(relativeUrl, options = {}) {
