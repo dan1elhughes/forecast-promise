@@ -1,15 +1,25 @@
 const toDateString = require('./toDateString');
 
 module.exports = options => {
-	const qs = {};
+	const qs = Object.assign(options);
 
 	if (options.startDate) {
 		qs.start_date = toDateString(options.startDate);
+		delete qs.startDate;
 	}
 
 	if (options.endDate) {
 		qs.end_date = toDateString(options.endDate);
+		delete qs.endDate;
 	}
 
-	return qs.hasOwnProperty('start_date') ? qs : options;
+	if (options.starting) {
+		qs.starting = toDateString(options.starting);
+	}
+
+	if (options.ending) {
+		qs.ending = toDateString(options.ending);
+	}
+
+	return qs;
 };

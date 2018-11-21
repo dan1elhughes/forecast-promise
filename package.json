@@ -29,6 +29,7 @@
 	"license": "MIT",
 	"dependencies": {
 		"axios": "^0.17.1",
+		"es6-promise-promise": "^1.0.0",
 		"moment": "^2.20.1"
 	},
 	"devDependencies": {
