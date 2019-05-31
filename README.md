@@ -20,6 +20,8 @@ You will need a Forecast account, accountId and personal access token.
 
 To find your accountId and generate the token, log into Forecast and go to [Developers](https://id.getharvest.com/developers), then click _Create New Personal Access Token_.
 
+In case the newly created personal access token doesn't work for you (i.e. you are receiving 401 errors when using this library), login to your Forecast account and inspect the network requests for your Authorization Token and Forecast-Account-ID in the headers of any https://api.forecastapp.com/ request.
+
 # Usage
 
 ```js
