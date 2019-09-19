@@ -27,7 +27,7 @@
 	"author": "Dan Hughes",
 	"license": "MIT",
 	"dependencies": {
-		"axios": "^0.17.1",
+		"axios": "^0.19.0",
 		"moment": "^2.20.1"
 	},
 	"devDependencies": {
