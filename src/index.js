@@ -9,7 +9,7 @@ class Forecast {
 			);
 		}
 
-		const baseURL = 'https://api.forecastapp.com/';
+		const baseURL = 'https://api.harvestapp.com/v2/';
 		const headers = {
 			Authorization: `Bearer ${token}`,
 			'Forecast-Account-Id': accountId,
