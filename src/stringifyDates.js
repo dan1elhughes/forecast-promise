@@ -9,5 +9,9 @@ module.exports = options => {
 		qs.end_date = toDateString(options.endDate);
 	}
 
+	if (options.personId) {
+		qs.person_id = options.personId;
+	}
+
 	return qs;
 };

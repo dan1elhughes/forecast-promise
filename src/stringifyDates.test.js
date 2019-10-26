@@ -25,4 +25,12 @@ describe('stringifyDates', () => {
 
 		expect(Object.keys(output).length).toBe(1);
 	});
+
+	it('adds the person id', () => {
+		const output = stringifyDates({ personId: 1234 });
+
+		expect(output).toMatchObject({
+			person_id: 1234,
+		});
+	});
 });
